@@ -103,18 +103,18 @@ export default {
       this.touchX = null;
       this.touchY = null;
     },
-    touchStart({ changedTouches }) {
-      if(_.size(changedTouches) > 1) return this.touchReset();
-      this.touchX = changedTouches[0].clientX;
-      this.touchY = changedTouches[0].clientY;
+    touchStart(event) {
+      if(_.size(event.changedTouches) > 1) return this.touchReset();
+      this.touchX = event.changedTouches[0].clientX;
+      this.touchY = event.changedTouches[0].clientY;
     },
     touchEnd({ changedTouches }) {
       if(_.size(changedTouches) > 1) return this.touchReset();
       const vectorX = this.touchX - changedTouches[0].clientX;
       const vectorY = this.touchY - changedTouches[0].clientY;
-      if(!vectorX && !vectorY) return;
       const isVectorHorizontal = Math.abs(vectorX) > Math.abs(vectorY);
 
+      if(!vectorX && !vectorY) return;
       if(Math.max(Math.abs(vectorX), Math.abs(vectorY)) <= 10) return;
 
       const vector = isVectorHorizontal

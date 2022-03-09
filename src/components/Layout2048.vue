@@ -258,7 +258,7 @@ export default {
             content: "";
             width: #{$index}0%;
             height: #{$index}0%;
-            opacity: #{$index}0%;
+            opacity: calc(#{$index} / 10);
             font-size: calc(#{$index}0% * 3);
           }
         }
