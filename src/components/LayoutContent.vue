@@ -69,10 +69,10 @@ export default {
     },
 
     gridHeight() {
-      return this.appHeight - 75;
+      return this.appHeight - 75 - 40;
     },
     gridWidth() {
-      return this.appWidth;
+      return this.appWidth - 40;
     },
   },
 
@@ -104,14 +104,18 @@ export default {
       this.touchY = null;
     },
     touchStart(event) {
-      if(_.size(event.changedTouches) > 1) return this.touchReset();
-      this.touchX = event.changedTouches[0].clientX;
-      this.touchY = event.changedTouches[0].clientY;
+      const { changedTouches, clientX, clientY, path } = event;
+      const isElemGrid = _.find(path, elem => _.invoke(elem, 'classList.contains', 'grid'))
+      if(_.size(changedTouches) > 1 || !isElemGrid) return this.touchReset();
+      event.preventDefault();
+      this.touchX = changedTouches?.[0]?.clientX ?? clientX;
+      this.touchY = changedTouches?.[0]?.clientY ?? clientY;
     },
-    touchEnd({ changedTouches }) {
+    touchEnd({ changedTouches, clientX, clientY }) {
       if(_.size(changedTouches) > 1) return this.touchReset();
-      const vectorX = this.touchX - changedTouches[0].clientX;
-      const vectorY = this.touchY - changedTouches[0].clientY;
+      if(!this.touchX || !this.touchY) return;
+      const vectorX = this.touchX - (changedTouches?.[0]?.clientX ?? clientX);
+      const vectorY = this.touchY - (changedTouches?.[0]?.clientY ?? clientY);
       const isVectorHorizontal = Math.abs(vectorX) > Math.abs(vectorY);
 
       if(!vectorX && !vectorY) return;
@@ -126,16 +130,20 @@ export default {
 
   },
 
-  beforeMount() {
+  mounted() {
     document.addEventListener('keydown', this.keydown);
     document.addEventListener('touchstart', this.touchStart);
     document.addEventListener('touchend', this.touchEnd);
+    document.addEventListener('mousedown', this.touchStart);
+    document.addEventListener('mouseup', this.touchEnd);
   },
 
   beforeDestroy() {
     document.removeEventListener('keydown', this.keydown);
     document.removeEventListener('touchstart', this.touchStart);
     document.removeEventListener('touchend', this.touchEnd); 
+    document.removeEventListener('mousedown', this.touchStart);
+    document.removeEventListener('mouseup', this.touchEnd);
   },
 };
 </script>

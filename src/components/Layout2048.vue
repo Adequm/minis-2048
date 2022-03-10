@@ -209,7 +209,7 @@ export default {
   display: grid;
   gap: 10px;
   grid-auto-rows: 1fr;
-  padding: 20px;
+  margin: 20px;
   box-sizing: border-box;
   width: 100%;
   .row {
