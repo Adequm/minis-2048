@@ -11,7 +11,7 @@ const store = {};
 Vue.use(Vuex);
 
 store.state = () => ({
-  projectKey: projectKey.split('-').slice(-1)[0],
+  projectKey: projectKey.split('-').slice(1).join('-'),
   maxScore: 0,
   currentScore: 0,
   gameTypesList: ['raindrops', 'square'],
