@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+import { mapState } from 'vuex';
+
 export default {
   data: () => ({
     minContainerWidth: 300,
@@ -14,7 +16,6 @@ export default {
     startResizeHeight: null,
     resizeHash: null,
     onInputFocus: false,
-    isFullscreen: false,
   }),
 
   watch: {
@@ -24,6 +25,7 @@ export default {
   },
 
   computed: {
+    ...mapState(['isFullscreen']),
     isWidthMore768: ths => ths.innerWidth >= 768,
     isDesktop: ths => ths.isWidthMore768 && !ths.isFullscreen,
     appWidth: ths => ths.isDesktop ? ths.containerWidth : ths.innerWidth,

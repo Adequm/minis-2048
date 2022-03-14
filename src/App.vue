@@ -1,6 +1,7 @@
 <template>
   <div 
     class="container" 
+    :class="{ fullscreen: isFullscreen }"
     :style="{ 
       height: `${ innerHeight }px`, 
       maxWidth: isDesktop ? `${ containerWidth }px` : '100vw',
@@ -16,7 +17,7 @@
         v-model="isClosedSettings"
         @switchTheme="switchTheme"
         @switchLang="switchLang"
-        @switchFullscreen="isFullscreen = !isFullscreen"
+        @switchFullscreen="switchFullscreen"
       />
 
       <LayoutContent
@@ -38,7 +39,7 @@
           :isWidthMore768="isWidthMore768"
           @switchTheme="switchTheme"
           @switchLang="switchLang"
-          @switchFullscreen="isFullscreen = !isFullscreen"
+          @switchFullscreen="switchFullscreen"
         />
         <div v-if="openedModalName == 'endgame'" class="endgame-modal">
           <h4 v-if="currentScore >= maxScore" v-text="translate('modal.newRecord')"/>
@@ -71,7 +72,7 @@ import SettingsMobile from './components/app/SettingsMobile';
 import AppModal from './components/app/AppModal';
 import LayoutContent from './components/LayoutContent';
 
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   components: {
@@ -105,6 +106,10 @@ export default {
 
   computed: {
     ...mapState(['currentScore', 'maxScore']),
+  },
+
+  methods: {
+    ...mapMutations(['switchFullscreen']),
   },
 
   beforeMount() {

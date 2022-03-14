@@ -189,7 +189,7 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-  .minis__content {
+  .container:not(.fullscreen) .minis__content {
     border-radius: 10px;
     clip-path: polygon(
       0 5px, 5px 0, calc(100% - 5px) 0, 101% 5px, 

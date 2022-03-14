@@ -11,6 +11,7 @@ const store = {};
 Vue.use(Vuex);
 
 store.state = () => ({
+  isFullscreen: false,
   projectKey: projectKey.split('-').slice(1).join('-'),
   maxScore: 0,
   currentScore: 0,
@@ -22,6 +23,7 @@ store.state = () => ({
 
 
 store.mutations = {
+  switchFullscreen: state => Vue.set(state, 'isFullscreen', !state.isFullscreen),
   setCurrentScore: (state, score) => Vue.set(state, 'currentScore', score),
   setMaxScore(state, score) {
     if(state.maxScore >= score) return;
@@ -38,10 +40,20 @@ store.mutations = {
 
 
 const persistedMinis = [
-  'minis.minisThemeMain', 'minis.minisThemeSpecial', 'minis.minisLang',
-  'minis.themesJSON', 'minis.translateJSON', 'minis.minisJSON',
+  'minis.minisThemeMain', 
+  'minis.minisThemeSpecial', 
+  'minis.minisLang',
+  'minis.themesJSON', 
+  'minis.translateJSON', 
+  'minis.minisJSON',
 ];
-const persistedLocal = ['maxScore', 'gameType', 'rowsMount', 'colsMount'];
+const persistedLocal = [
+  'isFullscreen',
+  'maxScore', 
+  'gameType', 
+  'rowsMount', 
+  'colsMount',
+];
 store.modules = { minis: minisModule };
 store.plugins = [
   createMutationsSharer({ predicate: () => [...persistedMinis, ...persistedLocal] }),

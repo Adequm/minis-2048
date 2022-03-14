@@ -60,8 +60,8 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-.modal__background {
-  border-radius: 10px;
-}
+  .content:not(.fullscreen) .modal__background {
+    border-radius: 10px;
+  }
 }
 </style>
