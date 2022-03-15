@@ -70,10 +70,6 @@
 
 <script>
 import _ from 'lodash';
-import minisMixin from './mixins/minis.mixin';
-import resizeMixin from './mixins/resize.mixin';
-import faviconMixin from './mixins/favicon.mixin';
-import translateMixin from './mixins/translate.mixin';
 
 import Icon from './components/app/Icon';
 import SettingsDesktop from './components/app/SettingsDesktop';
@@ -81,6 +77,7 @@ import SettingsMobile from './components/app/SettingsMobile';
 import AppModal from './components/app/AppModal';
 import LayoutContent from './components/LayoutContent';
 
+import { minisMixin, resizeMixin, faviconMixin, translateMixin } from '@minis-core/mixins';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
