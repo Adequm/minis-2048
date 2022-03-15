@@ -71,12 +71,9 @@
 <script>
 import _ from 'lodash';
 
-import Icon from './components/app/Icon';
-import SettingsDesktop from './components/app/SettingsDesktop';
-import SettingsMobile from './components/app/SettingsMobile';
-import AppModal from './components/app/AppModal';
 import LayoutContent from './components/LayoutContent';
 
+import { Icon, AppModal, SettingsDesktop, SettingsMobile } from '@minis-core/components';
 import { minisMixin, resizeMixin, faviconMixin, translateMixin } from '@minis-core/mixins';
 import { mapState, mapMutations } from 'vuex';
 

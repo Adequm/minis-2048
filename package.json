@@ -3,11 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "upgrage:core": "yarn remove @minis-core/mixins && yarn add @minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git",
+    "upgrage:core/mixins": "yarn remove @minis-core/mixins && yarn add @minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git",
+    "upgrage:core/components": "yarn remove @minis-core/components && yarn add @minis-core/components@git+https://github.com/Adequm/minis-core-components.git",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@minis-core/components": "git+https://github.com/Adequm/minis-core-components.git",
     "@minis-core/mixins": "git+https://github.com/Adequm/minis-core-mixins.git",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",

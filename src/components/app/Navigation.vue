@@ -27,7 +27,7 @@
 
 <script>
 import _ from 'lodash';
-import Icon from './Icon';
+import { Icon } from '@minis-core/components';
 
 export default {
   name: 'Navigation',
