@@ -30,7 +30,7 @@ import _ from 'lodash';
 import { Icon } from '@minis-core/components';
 
 export default {
-  name: 'Navigation',
+  name: 'AppNavigation',
 
   components: {
     Icon,

@@ -6,7 +6,7 @@
       gridTemplateRows,
     }"
   >
-    <Navigation
+    <AppNavigation
       style="height: 100%; padding-bottom: 0;"
       :isDesktop="isDesktop"
       :score="currentScore"
@@ -34,7 +34,7 @@
 import _ from 'lodash';
 
 import Layout2048 from './Layout2048';
-import Navigation from './app/Navigation';
+import AppNavigation from './app/AppNavigation';
 
 import { mapState, mapMutations } from 'vuex';
 
@@ -43,7 +43,7 @@ export default {
 
   components: {
     Layout2048,
-    Navigation,
+    AppNavigation,
   },
 
   props: {
