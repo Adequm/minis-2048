@@ -1,3 +1,4 @@
+import '@minis-core/styles/uicons/uicons-rs.css';
 import Vue from 'vue';
 import App from './App.vue';
 import './registerServiceWorker';
