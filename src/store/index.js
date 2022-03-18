@@ -4,15 +4,16 @@ import createPersistedState from 'vuex-persistedstate';
 import createMutationsSharer from 'vuex-shared-mutations';
 import _ from 'lodash';
 
-const projectKey = location.pathname.split('/')[1];
+const projectKey = location.pathname.split('/')[1].split('-').slice(1).join('-');
+const fullscreenKey = `${ projectKey }-isFullscreen`;
 import { vuexMinisModule as minisModule, persistedMinis } from '@minis-core/mixins';
 
 const store = {};
 Vue.use(Vuex);
 
 store.state = () => ({
-  isFullscreen: false,
-  projectKey: projectKey.split('-').slice(1).join('-'),
+  [fullscreenKey]: false,
+  projectKey,
   maxScore: 0,
   currentScore: 0,
   gameTypesList: ['raindrops', 'square'],
@@ -22,8 +23,13 @@ store.state = () => ({
 });
 
 
+store.getters = {
+  isFullscreen: state => state[fullscreenKey],
+};
+
+
 store.mutations = {
-  switchFullscreen: state => Vue.set(state, 'isFullscreen', !state.isFullscreen),
+  switchFullscreen: state => Vue.set(state, fullscreenKey, !state[fullscreenKey]),
   setCurrentScore: (state, score) => Vue.set(state, 'currentScore', score),
   setMaxScore(state, score) {
     if(state.maxScore >= score) return;
@@ -40,6 +46,7 @@ store.mutations = {
 
 
 const persistedLocal = [
+  fullscreenKey,
   'maxScore', 
   'gameType', 
   'rowsMount', 
@@ -49,7 +56,7 @@ store.modules = { minis: minisModule };
 store.plugins = [
   createMutationsSharer({ predicate: () => [...persistedMinis, ...persistedLocal] }),
   createPersistedState({ paths: persistedMinis, key: 'minis' }),
-  createPersistedState({ paths: persistedLocal.concat('isFullscreen'), key: projectKey }),
+  createPersistedState({ paths: persistedLocal, key: `minis-${projectKey}` }),
 ];
 
 export default new Vuex.Store(store);

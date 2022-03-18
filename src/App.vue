@@ -14,6 +14,10 @@
       <SettingsDesktop
         v-if="isDesktop"
         :themeIcon="themeMain.icon"
+        :appHeight="appHeight"
+        :appWidth="appWidth"
+        :translate="translate"
+        :translateDef="translateDef"
         v-model="isClosedSettings"
         @switchTheme="switchTheme"
         @switchLang="switchLang"
