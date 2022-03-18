@@ -13,6 +13,7 @@ Vue.use(Vuex);
 
 store.state = () => ({
   [fullscreenKey]: false,
+  switchFullscreenKey: `switch_${fullscreenKey}`,
   projectKey,
   maxScore: 0,
   currentScore: 0,
@@ -29,7 +30,7 @@ store.getters = {
 
 
 store.mutations = {
-  switchFullscreen: state => Vue.set(state, fullscreenKey, !state[fullscreenKey]),
+  [`switch_${fullscreenKey}`]: state => Vue.set(state, fullscreenKey, !state[fullscreenKey]),
   setCurrentScore: (state, score) => Vue.set(state, 'currentScore', score),
   setMaxScore(state, score) {
     if(state.maxScore >= score) return;

@@ -21,7 +21,7 @@
         v-model="isClosedSettings"
         @switchTheme="switchTheme"
         @switchLang="switchLang"
-        @switchFullscreen="switchFullscreen"
+        @switchFullscreen="$store.commit(switchFullscreenKey)"
       />
 
       <LayoutContent
@@ -46,7 +46,7 @@
           :isWidthMore768="isWidthMore768"
           @switchTheme="switchTheme"
           @switchLang="switchLang"
-          @switchFullscreen="switchFullscreen"
+          @switchFullscreen="$store.commit(switchFullscreenKey)"
         />
         <div v-if="openedModalName == 'endgame'" class="endgame-modal">
           <h4 v-if="currentScore >= maxScore" v-text="translate('modal.newRecord')"/>
@@ -112,16 +112,16 @@ export default {
   },
 
   computed: {
-    ...mapState(['currentScore', 'maxScore']),
-  },
-
-  methods: {
-    ...mapMutations(['switchFullscreen']),
+    ...mapState([
+      'switchFullscreenKey',
+      'currentScore', 
+      'maxScore',
+    ]),
   },
 
   beforeMount() {
     document.body.addEventListener('click', event => {
-      if(document.body !== event.path[0]) return;
+      if(document.body !== _.get(event.path, 0)) return;
       if(!this.isDesktop) return;
       if(this.isClosedSettings) return;
       this.isClosedSettings = true;
