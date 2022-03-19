@@ -997,15 +997,15 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
 "@minis-core/components@git+https://github.com/Adequm/minis-core-components.git":
-  version "1.0.0"
-  resolved "git+https://github.com/Adequm/minis-core-components.git#94e1fdf80f5f2acd0ae655786ae6db2a87e5b645"
+  version "1.0.4"
+  resolved "git+https://github.com/Adequm/minis-core-components.git#71b00d6211e01e96de842db34d29dac52f9d98c0"
   dependencies:
     lodash "^4.17.21"
-    vue "^3.2.31"
+    vue "^2.6.11"
 
 "@minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git":
-  version "1.0.0"
-  resolved "git+https://github.com/Adequm/minis-core-mixins.git#8fba103f36bd8e9e88d19d0df89ec998f6ff192b"
+  version "1.0.1"
+  resolved "git+https://github.com/Adequm/minis-core-mixins.git#00db01356a4fcce9fdeebc684168492f94141a3b"
   dependencies:
     lodash "^4.17.21"
     vue "^3.2.31"
