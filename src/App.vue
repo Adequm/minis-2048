@@ -123,7 +123,7 @@ export default {
 
   beforeMount() {
     document.body.addEventListener('click', event => {
-      if(document.body !== _.get(event.path, 0)) return;
+      if(document.body !== event.target) return;
       if(!this.isDesktop) return;
       if(this.isClosedSettings) return;
       this.isClosedSettings = true;
