@@ -6,6 +6,7 @@
     "upgrage:core/mixins": "yarn remove @minis-core/mixins && yarn add @minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git",
     "upgrage:core/styles": "yarn remove @minis-core/styles && yarn add @minis-core/styles@git+https://github.com/Adequm/minis-core-styles.git",
     "upgrage:core/components": "yarn remove @minis-core/components && yarn add @minis-core/components@git+https://github.com/Adequm/minis-core-components.git",
+    "deploy": "yarn build && git add . && git commit -m \"dist payload\" && git push && git subtree push --prefix=dist origin gh-pages",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
