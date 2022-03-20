@@ -268,9 +268,9 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.16.4":
-  version "7.17.7"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.7.tgz#fc19b645a5456c8d6fdb6cecd3c66c0173902800"
-  integrity sha512-bm3AQf45vR4gKggRfvJdYJ0gFLoCbsPxiFLSH6hTVYABptNHY6l9NrhnucVjQ/X+SPtLANT9lc0fFhikj+VBRA==
+  version "7.17.8"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.8.tgz#2817fb9d885dd8132ea0f8eb615a6388cca1c240"
+  integrity sha512-BoHhDJrJXqcg+ZL16Xv39H9n+AqJ4pcDrQBGZN+wHxIysrLZ3/ECwCBUch/1zUNhnsXULcONU3Ei5Hmkfk6kiQ==
 
 "@babel/parser@^7.16.7", "@babel/parser@^7.17.3":
   version "7.17.3"
@@ -997,15 +997,15 @@
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
 "@minis-core/components@git+https://github.com/Adequm/minis-core-components.git":
-  version "1.0.4"
-  resolved "git+https://github.com/Adequm/minis-core-components.git#71b00d6211e01e96de842db34d29dac52f9d98c0"
+  version "1.0.6"
+  resolved "git+https://github.com/Adequm/minis-core-components.git#cd88e86cf5988c4a03f6ab7f425536bda9175a9d"
   dependencies:
     lodash "^4.17.21"
     vue "^2.6.11"
 
 "@minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git":
-  version "1.0.1"
-  resolved "git+https://github.com/Adequm/minis-core-mixins.git#00db01356a4fcce9fdeebc684168492f94141a3b"
+  version "1.0.3"
+  resolved "git+https://github.com/Adequm/minis-core-mixins.git#8d5cd75256d9a6a7fb336366ec29b093eba5b532"
   dependencies:
     lodash "^4.17.21"
     vue "^3.2.31"
@@ -6824,9 +6824,9 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.27, postcss@^7.0.3
     source-map "^0.6.1"
 
 postcss@^8.1.10:
-  version "8.4.11"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.11.tgz#a06229f23820b4ddd46500a3e38dbca1598a8e8d"
-  integrity sha512-D+jFLnT0ilGfy4CVBGbC+XE68HkVpT8+CUkDrcSpgxmo4RKco2uaZ4kIoyVGEm+m8KN/+Vwgs8MtpNbQ3/ma9w==
+  version "8.4.12"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.12.tgz#1e7de78733b28970fa4743f7da6f3763648b1905"
+  integrity sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==
   dependencies:
     nanoid "^3.3.1"
     picocolors "^1.0.0"
