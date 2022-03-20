@@ -1,9 +1,5 @@
 <template>
-  <div 
-    class="grid" 
-    :key="hash"
-    :style="{ height, width }"
-  >
+  <div class="grid" :key="hash">
     <div v-for="row of rows" :key="row" class="row">
       <div 
         v-for="cell of cols" 
@@ -209,9 +205,9 @@ export default {
   display: grid;
   gap: 10px;
   grid-auto-rows: 1fr;
-  margin: 20px;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
   .row {
     display: grid;
     grid-auto-flow: column;
@@ -220,7 +216,7 @@ export default {
     .cell {
       color: var(--text-color);
       display: flex;
-      background: var(--content-bg-color);
+      background: var(--main-bg-color);
       border-radius: 10px;
       justify-content: center;
       align-items: center;

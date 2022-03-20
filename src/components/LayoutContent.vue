@@ -7,7 +7,6 @@
     }"
   >
     <AppNavigation
-      style="height: 100%; padding-bottom: 0;"
       :isDesktop="isDesktop"
       :score="currentScore"
       :maxScore="maxScore"
@@ -16,16 +15,16 @@
       @switchGameType="switchGameType"
     />
 
-    <Layout2048
-      ref="game2048"
-      :rows="rowsMount"
-      :cols="colsMount"
-      :width="`${ gridWidth }px`"
-      :height="`${ gridHeight }px`"
-      :gameType="gameType"
-      @updateScore="setCurrentScore"
-      @gameover="$emit('openModal', 'endgame') && setMaxScore(currentScore)"
-    />
+    <div class="minis__display">
+      <Layout2048
+        ref="game2048"
+        :rows="rowsMount"
+        :cols="colsMount"
+        :gameType="gameType"
+        @updateScore="setCurrentScore"
+        @gameover="$emit('openModal', 'endgame') && setMaxScore(currentScore)"
+      />
+    </div>
 
   </div>
 </template>
@@ -63,16 +62,9 @@ export default {
   computed: {
     ...mapState(['maxScore', 'currentScore', 'gameType', 'rowsMount', 'colsMount']),
     gridTemplateRows() {
-      const header = Math.min(this.appHeight * 0.15, 65);
+      const header = Math.min(this.appHeight * 0.15, 85);
       const content = this.appHeight - header;
-      return `${ header }px 1fr 10px`;
-    },
-
-    gridHeight() {
-      return this.appHeight - 75 - 40;
-    },
-    gridWidth() {
-      return this.appWidth - 40;
+      return `${ header }px ${ content }px`;
     },
   },
 
